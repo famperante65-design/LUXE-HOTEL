@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap');
+/* ============================================================
+   CLIENT THEME - "Emerald Resort": light luxury (ivory, sand, deep emerald, champagne gold)
+   Loaded by client_theme.js (pick it with the Design box, bottom-right).
+   Change the colors in the variables below to re-theme everything.
+   ============================================================ */
+body.client-page {
+  --em:#0f3d33; --em2:#1f5b4b; --gold:#b8975a; --gold-dk:#8a6d33; --gold-hi:#e4cf9a;
+  --ivory:#fffdf8; --sand:#f3ead8; --ink:#1b2a25; --muted:#66705f; --line:#e6dcc4;
+  font-family:'DM Sans', system-ui, sans-serif; color:var(--ink);
+  background: linear-gradient(180deg, rgba(250,245,234,.35), rgba(243,234,216,.55)), #f5efe3 url('images/resort-bg.svg') center / cover no-repeat fixed;
+  min-height:100vh;
+}
+html:has(body.client-page) { background:#f3ead8; }
+
+/* ---------- Header: centered brand, navigation underneath ---------- */
+.client-page header { display:flex; flex-direction:column; align-items:center; gap:6px; padding:20px 24px 10px; background:rgba(255,253,248,.82); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid rgba(184,151,90,.45); position:sticky; top:0; z-index:5; }
+.client-page header > div { display:flex; flex-direction:column; align-items:center; gap:2px; }
+.client-page header strong { font-family:'Playfair Display', Georgia, serif; font-weight:600; font-size:1.9rem; color:var(--em); letter-spacing:.04em; }
+.client-page #welcome { color:var(--muted); font-style:italic; font-size:.92rem; margin:0; }
+.client-page nav { display:flex; flex-wrap:wrap; justify-content:center; gap:4px 10px; align-items:center; }
+.client-page nav a { background:none; color:var(--em2); padding:8px 16px; margin:0; border-radius:0; border-bottom:2px solid transparent; font-weight:500; text-decoration:none; transition:color .2s, border-color .2s; }
+.client-page nav a:hover { color:var(--gold-dk); }
+.client-page nav a.active { color:var(--em); border-bottom-color:var(--gold); outline:0; }
+.client-page nav a.ghost { border:1px solid var(--gold); color:var(--gold-dk); border-radius:999px; padding:6px 18px; margin-left:14px; background:none; }
+.client-page nav a.ghost:hover { background:var(--gold); color:#fff; }
+
+.client-page main { max-width:1180px; margin:0 auto; padding:46px 28px 90px; }
+.client-page main a { color:var(--em2); font-weight:500; }
+.client-page h2 { font-family:'Playfair Display', Georgia, serif; font-weight:600; font-size:2rem; margin:0 0 14px; color:var(--em); }
+
+/* ---------- Rooms page ---------- */
+.client-page .rooms-head { margin:4px 0 52px; text-align:center; }
+.client-page .rooms-head h1 { font-family:'Playfair Display', Georgia, serif; font-weight:500; font-style:italic; font-size:clamp(2.6rem, 6vw, 4.4rem); line-height:1.05; color:var(--em); margin:0 0 12px; }
+.client-page .rooms-head h1::after { content:""; display:block; width:120px; height:9px; margin:20px auto 0; background:
+  radial-gradient(circle at center, var(--gold) 0 3px, transparent 3.5px) center/9px 9px no-repeat,
+  linear-gradient(90deg, transparent, var(--gold) 45%, transparent 45%, transparent 55%, var(--gold) 55%, transparent) center/100% 1px no-repeat; }
+.client-page .rooms-head p { color:var(--muted); font-size:1.08rem; margin:0; }
+.client-page .rooms-grid { grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:40px 34px; }
+.client-page .room-card { background:var(--ivory); border:1px solid rgba(184,151,90,.4); border-radius:145px 145px 18px 18px; box-shadow:0 24px 50px rgba(15,61,51,.14); text-align:center; display:flex; flex-direction:column; overflow:hidden; transition:transform .3s, box-shadow .3s; }
+.client-page .room-card:hover { transform:translateY(-5px); box-shadow:0 32px 60px rgba(15,61,51,.22); }
+.client-page .room-card img, .client-page .room-info img, .client-page .room-img { object-fit:cover; height:240px; width:100%; transition:transform .6s; }
+.client-page .room-card:hover img { transform:scale(1.05); }
+.client-page .room-img.ph { background:linear-gradient(135deg, var(--em2), var(--em)); color:var(--gold-hi); }
+.client-page .room-body { padding:24px 26px 30px; display:flex; flex-direction:column; align-items:center; flex:1; }
+.client-page .room-body h3 { font-family:'Playfair Display', Georgia, serif; font-size:1.45rem; font-weight:600; color:var(--em); margin:0 0 10px; }
+.client-page .room-desc { color:var(--muted); font-size:.93rem; line-height:1.65; margin:0 0 14px; }
+.client-page .room-meta { margin:auto 0 18px; padding-top:14px; width:100%; border-top:1px solid var(--line); color:var(--gold-dk); font-size:.92rem; font-weight:600; }
+.client-page .room-btn { background:var(--em); color:#fff; border-radius:999px; padding:11px 30px; margin:0; font-family:inherit; font-weight:500; box-shadow:none; transition:background .2s, transform .2s; }
+.client-page .room-btn:hover { background:var(--gold-dk); transform:translateY(-1px); }
+
+/* ---------- Cards, forms, buttons (booking + bookings pages) ---------- */
+.client-page .card { background:var(--ivory); border:1px solid rgba(184,151,90,.4); border-radius:18px; box-shadow:0 24px 50px rgba(15,61,51,.12); padding:30px 32px; }
+.client-page .card h2 { color:var(--em); }
+.client-page .room-detail { gap:32px; }
+.client-page .room-info img, .client-page .room-info .room-img { border-radius:130px 130px 12px 12px; height:290px; margin-bottom:20px; }
+.client-page .room-info p { color:var(--muted); line-height:1.7; }
+.client-page .room-info b { color:var(--ink); font-weight:600; }
+.client-page label { color:var(--muted); font-size:.84rem; font-weight:500; margin:16px 0 6px; }
+.client-page input, .client-page select, .client-page textarea { background:#fff; border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-family:inherit; color:var(--ink); }
+.client-page input:disabled { background:var(--sand); color:var(--muted); }
+.client-page input:focus, .client-page select:focus, .client-page textarea:focus { outline:0; border-color:var(--gold); box-shadow:0 0 0 4px rgba(184,151,90,.22); }
+.client-page button { background:var(--em); color:#fff; border-radius:999px; padding:13px 32px; font-family:inherit; font-weight:600; letter-spacing:.02em; box-shadow:0 10px 20px rgba(15,61,51,.22); margin:20px 0 0; transition:background .2s, transform .2s; }
+.client-page button:hover { background:var(--em2); transform:translateY(-1px); }
+.client-page button:focus-visible, .client-page nav a:focus-visible, .client-page main a:focus-visible { outline:3px solid rgba(184,151,90,.6); outline-offset:2px; }
+#bTotal { margin:18px 0 0; padding:14px 18px; background:var(--sand); border-left:4px solid var(--gold); border-radius:0 10px 10px 0; line-height:1.7; }
+.client-page #bTotal strong { font-family:'Playfair Display', Georgia, serif; font-size:1.5rem; color:var(--em); }
+
+.client-page .table-wrap { padding:8px; }
+.client-page table { font-size:.92rem; }
+.client-page th { background:var(--em); color:var(--gold-hi); font-weight:500; padding:14px 16px; border:0; }
+.client-page th:first-child { border-radius:10px 0 0 10px; }
+.client-page th:last-child { border-radius:0 10px 10px 0; }
+.client-page td { padding:14px 16px; border-bottom:1px solid var(--line); }
+.client-page tr:hover td { background:#faf4e6; }
+.client-page .badge { padding:3px 14px; border-radius:999px; font-weight:600; font-size:.8rem; background:var(--sand); color:var(--gold-dk); }
+.client-page .badge.st-Pending { background:#fdf0c8; color:#7a5a05; }
+.client-page .badge.st-Confirmed { background:#d9e8fb; color:#1d4a8a; }
+.client-page .badge.st-Completed { background:#d6efdf; color:#1b6a3a; }
+.client-page .badge.st-Cancelled { background:#f8dcdc; color:#8d1f1f; }
+.client-page .msg { border-radius:12px; font-weight:500; border-left:4px solid; }
+.client-page .msg.ok { background:#e6f4ea; color:#17542f; border-color:#2f9e5a; }
+.client-page .msg.err { background:#fbe6e6; color:#8d1f1f; border-color:#c0392b; }
+
+@media (max-width:760px) {
+  .client-page header { padding:14px 14px 8px; }
+  .client-page main { padding:30px 16px 60px; }
+  .client-page .card { padding:22px 20px; }
+  .client-page nav a.ghost { margin-left:0; }
+}
+@media (prefers-reduced-motion:reduce) { .client-page .room-card, .client-page .room-card img { transition:none; } }

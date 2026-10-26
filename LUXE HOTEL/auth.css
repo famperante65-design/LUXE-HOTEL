@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Lato:wght@300;400;700&display=swap');
+/* ============================================================
+   LOGIN + REGISTER - royal burgundy design (same look as the client pages)
+   Used by index.html and register.html (body class "auth-page").
+   Colors are the variables just below.
+   ============================================================ */
+body.auth-page {
+  --gold:#c9a34f; --gold-hi:#f1dca8; --gold-dk:#8a6a1f; --night:#26050f; --cream:#f8ecd7; --muted:#d8c2b0; --wine:#5a0f2a; --wine-dk:#3a0a1c;
+  margin:0; min-height:100vh; overflow-x:hidden; position:relative;
+  font-family:'Lato', system-ui, sans-serif; color:var(--cream);
+  background:linear-gradient(180deg, rgba(30,4,14,.35), rgba(30,4,14,.6)), #3a0a1c url('images/royal-bg.svg') center / cover no-repeat fixed;
+}
+html:has(body.auth-page) { background:#26050f; }
+
+/* ---------- Card ---------- */
+.stage { margin:0; max-width:none; padding:32px 16px; position:relative; z-index:1; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+.panel { position:relative; width:min(92vw, 440px); padding:38px 38px 34px; border-radius:3px; text-align:center;
+  background:linear-gradient(160deg, rgba(84,14,40,.8), rgba(34,4,16,.88)); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(201,163,79,.75);
+  box-shadow:0 30px 80px rgba(0,0,0,.7), 0 0 60px rgba(201,163,79,.12), inset 0 1px 0 rgba(255,236,170,.22);
+  animation:cardIn 1.1s cubic-bezier(.2,.8,.2,1) both; }
+.panel.wide { width:min(92vw, 560px); }
+.panel::before { content:""; position:absolute; inset:8px; border:3px double rgba(201,163,79,.45); border-radius:2px; pointer-events:none; }
+.panel::after { content:""; position:absolute; inset:-1px; border-radius:3px; padding:1px; pointer-events:none;
+  background:conic-gradient(from var(--a,0deg), transparent 0 70%, rgba(255,236,170,.9) 85%, transparent 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; animation:spin 7s linear infinite; }
+@property --a { syntax:'<angle>'; initial-value:0deg; inherits:false; }
+@keyframes spin { to { --a:360deg; } }
+@keyframes cardIn { from { opacity:0; transform:translateY(46px) scale(.97); filter:blur(8px); } to { opacity:1; transform:none; filter:none; } }
+@keyframes fieldIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+
+.crest { width:54px; height:54px; margin:0 auto 6px; display:block; filter:drop-shadow(0 0 12px rgba(246,227,161,.45)); animation:float 6s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
+.panel h1 { margin:6px 0 6px; font-family:'Cinzel', Georgia, serif; font-weight:600; font-size:clamp(1.45rem, 4.6vw, 1.85rem); line-height:1.2; letter-spacing:.08em; text-align:center;
+  background:linear-gradient(100deg, #a8801f 10%, #f8e6b0 38%, #c9a34f 55%, #f8e6b0 72%, #a8801f 95%); background-size:220% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; animation:shine 7s linear infinite; }
+@keyframes shine { to { background-position:-220% 0; } }
+.sub { margin:0 0 26px; color:var(--muted); font-size:.95rem; }
+
+/* ---------- Form ---------- */
+.field { text-align:left; margin:0 0 16px; animation:fieldIn .8s cubic-bezier(.2,.8,.2,1) both; animation-delay:calc(.35s + var(--i, 0) * .09s); }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:0 14px; }
+.panel label { display:block; margin:0 0 7px; color:var(--gold-hi); font-size:.8rem; font-weight:500; letter-spacing:.04em; }
+.panel input:not([type=hidden]) { width:100%; padding:13px 15px; border-radius:3px; font:inherit; color:var(--cream); background:rgba(255,240,225,.07); border:1px solid rgba(201,163,79,.42); transition:border-color .25s, box-shadow .25s, background .25s; }
+.panel input::placeholder { color:rgba(216,194,176,.5); }
+.panel input:focus { outline:0; border-color:var(--gold-hi); background:rgba(255,240,225,.12); box-shadow:0 0 0 4px rgba(201,163,79,.22), 0 0 24px rgba(201,163,79,.16); }
+.panel input:-webkit-autofill { -webkit-text-fill-color:var(--cream); transition:background-color 9999s; }
+
+.seg { display:grid; grid-template-columns:repeat(3,1fr); gap:0; padding:3px; border-radius:3px; background:rgba(255,248,225,.05); border:1px solid rgba(201,163,79,.42); }
+.panel .seg button { margin:0; padding:10px 8px; border:0; border-radius:2px; background:transparent; color:var(--muted); font:inherit; font-weight:500; box-shadow:none; cursor:pointer; transition:background .3s, color .3s; }
+.panel .seg button:hover { color:var(--gold-hi); }
+.panel .seg button.on { color:#3a0a1c; font-weight:700; background:linear-gradient(135deg, #f8e6b0, #c9a34f 60%, #a8801f); box-shadow:0 4px 14px rgba(201,163,79,.35); }
+
+.actions { display:grid; gap:10px; margin-top:22px; animation:fieldIn .8s cubic-bezier(.2,.8,.2,1) both; animation-delay:calc(.35s + var(--i, 0) * .09s); }
+.panel button.gold, .panel button.line { margin:0; width:100%; padding:14px 18px; border-radius:3px; font:inherit; font-weight:600; letter-spacing:.06em; cursor:pointer; position:relative; overflow:hidden; transition:transform .2s, box-shadow .3s, background .3s, color .3s; }
+.panel button.gold { isolation:isolate; color:var(--gold-hi); border:1px solid var(--gold); background:linear-gradient(135deg, #8a1a40, #5a0f2a 55%, #3a0a1c); box-shadow:0 10px 28px rgba(0,0,0,.45), inset 0 0 0 1px rgba(201,163,79,.3), inset 0 1px 0 rgba(255,220,170,.25); }
+.panel button.gold::after { content:""; z-index:-1; position:absolute; top:0; left:-60%; width:40%; height:100%; background:linear-gradient(100deg, transparent, rgba(241,220,168,.4), transparent); transform:skewX(-20deg); animation:sweep 4.5s ease-in-out infinite; }
+@keyframes sweep { 0%,55% { left:-60%; } 100% { left:130%; } }
+.panel button.gold:hover { transform:translateY(-2px); background:linear-gradient(135deg, #a3204c, #6e1433 55%, #45102a); box-shadow:0 14px 34px rgba(0,0,0,.55), 0 0 22px rgba(201,163,79,.25), inset 0 0 0 1px rgba(201,163,79,.5); }
+.panel button.line { background:transparent; color:var(--gold-hi); border:1px solid rgba(201,163,79,.75); }
+.panel button.line:hover { background:rgba(201,163,79,.15); transform:translateY(-1px); }
+.panel button:focus-visible { outline:3px solid rgba(246,227,161,.7); outline-offset:2px; }
+
+.panel .msg { margin:0 0 16px; padding:11px 14px; border-radius:3px; font-size:.9rem; font-weight:500; text-align:left; border-left:4px solid; }
+.panel .msg.err { background:rgba(20,2,8,.45); color:#ffd3da; border-color:#ff6b86; }
+.panel .msg.ok { background:rgba(47,158,90,.16); color:#bff0d1; border-color:#3dbd78; }
+#authMsg { margin-top:16px; }
+#invalidBox { animation:fieldIn .5s both; }
+
+/* ---------- Show / hide password ---------- */
+.pw { position:relative; }
+.pw input:not([type=hidden]) { padding-right:50px; }
+.panel .eye { position:absolute; right:6px; top:50%; transform:translateY(-50%); margin:0; padding:0; width:38px; height:38px; display:grid; place-items:center; border:0; border-radius:3px; background:transparent; color:var(--muted); box-shadow:none; cursor:pointer; transition:color .2s, background .2s; }
+.panel .eye:hover { color:var(--gold-hi); background:rgba(201,163,79,.16); }
+.panel .eye svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.panel .eye .i-hide { display:none; }
+.panel .eye.on { color:var(--gold-hi); }
+.panel .eye.on .i-show { display:none; }
+.panel .eye.on .i-hide { display:block; }
+
+/* ---------- Leaving: page flows away ---------- */
+body.leaving .panel { transition:opacity .5s ease, transform .5s ease, filter .5s ease; opacity:0; transform:translateY(-26px) scale(.97); filter:blur(6px); }
+
+body.auth-page > #msg, body.auth-page > #welcome, body.auth-page > #nav { display:none; }
+
+/* ---------- Setup warning bar (shown only until Supabase keys are pasted) ---------- */
+body.auth-page > div[style*="b91c1c"] { position:relative; z-index:5; }
+
+@media (max-width:520px) { .panel { padding:30px 22px 26px; } .grid2 { grid-template-columns:1fr; } }
+@media (prefers-reduced-motion:reduce) {
+  .crest, .panel h1, .panel::after, .panel button.gold::after { animation:none !important; }
+  .panel, .field, .actions { animation-duration:.01s !important; animation-delay:0s !important; }
+}
+.panel .why { margin:-6px 0 18px; font-size:.88rem; line-height:1.5; color:#f1dca8; text-align:left; }
