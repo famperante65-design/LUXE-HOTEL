@@ -1,0 +1,87 @@
+/* ============================================================
+   CLIENT THEME - luxury hotel look (midnight navy, brass gold, ivory)
+   Loaded only by client_*.html (body has class "client-page").
+   Change the colors in the variables below to re-theme everything.
+   ============================================================ */
+body.client-page {
+  --night:#0b1220; --navy:#14213a; --gold:#c8a45a; --gold-hi:#e8d5a6; --gold-dk:#8a6a2c;
+  --ivory:#f8f3e9; --ink:#1d1a16; --muted:#6d6657; --line:#e3d9c3;
+  font-family:'Jost', system-ui, sans-serif; color:var(--ink);
+  background: linear-gradient(180deg, rgba(8,13,24,.55), rgba(8,13,24,.82)), var(--night) url('images/lobby-bg.svg') center top / cover no-repeat fixed;
+  min-height:100vh;
+}
+html:has(body.client-page) { background:#0b1220; }
+
+/* ---------- Header + navigation ---------- */
+.client-page header { background:rgba(10,16,29,.78); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid rgba(200,164,90,.35); padding:16px 36px; position:sticky; top:0; z-index:5; }
+.client-page header strong { font-family:'Cormorant Garamond', Georgia, serif; font-size:1.6rem; font-weight:600; color:var(--gold-hi); letter-spacing:.06em; }
+.client-page #welcome { color:rgba(248,243,233,.72); margin-left:18px; font-weight:300; font-size:.95rem; }
+.client-page nav { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+.client-page nav a { background:none; color:rgba(248,243,233,.85); padding:8px 16px; margin:0; border-radius:0; border-bottom:2px solid transparent; font-weight:400; text-decoration:none; transition:color .2s, border-color .2s; }
+.client-page nav a:hover { color:var(--gold-hi); }
+.client-page nav a.active { color:var(--gold-hi); border-bottom-color:var(--gold); outline:0; }
+.client-page nav a.ghost { border:1px solid var(--gold); color:var(--gold-hi); border-radius:2px; margin-left:12px; padding:7px 18px; background:none; }
+.client-page nav a.ghost:hover { background:var(--gold); color:var(--night); }
+
+.client-page main { max-width:1180px; margin:0 auto; padding:44px 28px 80px; }
+.client-page main a { color:var(--gold-hi); }
+.client-page h2 { font-family:'Cormorant Garamond', Georgia, serif; font-weight:600; font-size:2.1rem; margin:0 0 14px; }
+.client-page #content > h2 { color:var(--ivory); }
+
+/* ---------- Rooms page ---------- */
+.client-page .rooms-head { margin:6px 0 46px; text-align:center; }
+.client-page .rooms-head h1 { font-family:'Cormorant Garamond', Georgia, serif; font-weight:500; font-size:clamp(2.6rem, 6vw, 4.2rem); line-height:1; color:var(--ivory); margin:0 0 14px; letter-spacing:.01em; }
+.client-page .rooms-head h1::after { content:""; display:block; width:90px; height:1px; margin:20px auto 0; background:linear-gradient(90deg, transparent, var(--gold), transparent); }
+.client-page .rooms-head p { color:rgba(248,243,233,.78); font-weight:300; font-size:1.1rem; margin:0; }
+.client-page .rooms-grid { grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:34px; }
+.client-page .room-card { background:var(--ivory); border-radius:2px; border:1px solid rgba(200,164,90,.55); box-shadow:0 22px 50px rgba(0,0,0,.45); text-align:left; display:flex; flex-direction:column; overflow:hidden; transition:transform .3s, box-shadow .3s; }
+.client-page .room-card:hover { transform:translateY(-4px); box-shadow:0 30px 60px rgba(0,0,0,.55); }
+.client-page .room-card img, .client-page .room-info img, .client-page .room-img { object-fit:cover; height:210px; transition:transform .6s; }
+.client-page .room-card:hover img { transform:scale(1.04); }
+.client-page .room-card > img, .client-page .room-card > .room-img { border-bottom:3px solid var(--gold); }
+.client-page .room-img.ph { background:linear-gradient(135deg, #1b2b4d, #0f1a2e); color:var(--gold); }
+.client-page .room-body { padding:22px 26px 26px; display:flex; flex-direction:column; flex:1; }
+.client-page .room-body h3 { font-family:'Cormorant Garamond', Georgia, serif; font-size:1.65rem; font-weight:600; color:var(--ink); margin:0 0 8px; }
+.client-page .room-desc { color:var(--muted); font-weight:300; font-size:.95rem; line-height:1.6; margin:0 0 14px; }
+.client-page .room-meta { margin:auto 0 16px; padding-top:14px; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; font-weight:400; }
+.client-page .room-btn { align-self:flex-start; background:linear-gradient(135deg, #e8d5a6, #c8a45a 55%, #a8832f); color:var(--night); border-radius:2px; padding:11px 26px; margin:0; font-family:inherit; font-weight:500; letter-spacing:.04em; box-shadow:none; transition:filter .2s, transform .2s; }
+.client-page .room-btn:hover { filter:brightness(1.08); transform:translateY(-1px); }
+.client-page .room-meta { display:block; }
+
+/* ---------- Cards, forms, buttons (booking + bookings pages) ---------- */
+.client-page .card { background:var(--ivory); border:1px solid rgba(200,164,90,.55); border-radius:2px; box-shadow:0 22px 50px rgba(0,0,0,.45); padding:30px 32px; }
+.client-page .card h2 { color:var(--ink); }
+.client-page .room-detail { gap:30px; }
+.client-page .room-info img, .client-page .room-info .room-img { border-radius:0; border-bottom:3px solid var(--gold); height:260px; width:100%; margin-bottom:18px; }
+.client-page .room-info p { color:var(--muted); font-weight:300; line-height:1.65; }
+.client-page .room-info b { color:var(--ink); font-weight:500; }
+.client-page label { color:var(--muted); font-size:.82rem; font-weight:500; letter-spacing:.03em; margin:16px 0 6px; }
+.client-page input, .client-page select, .client-page textarea { background:#fffdf8; border:1px solid var(--line); border-radius:2px; padding:12px 14px; font-family:inherit; color:var(--ink); }
+.client-page input:disabled { background:#f1ead9; color:var(--muted); }
+.client-page input:focus, .client-page select:focus, .client-page textarea:focus { outline:0; border-color:var(--gold); box-shadow:0 0 0 3px rgba(200,164,90,.25); }
+.client-page button { background:linear-gradient(135deg, #e8d5a6, #c8a45a 55%, #a8832f); color:var(--night); border-radius:2px; padding:13px 30px; font-family:inherit; font-weight:500; letter-spacing:.05em; box-shadow:none; margin:20px 0 0; }
+.client-page button:hover { filter:brightness(1.08); }
+.client-page button:focus-visible, .client-page nav a:focus-visible, .client-page main a:focus-visible { outline:3px solid rgba(232,213,166,.7); outline-offset:2px; }
+#bTotal { margin:18px 0 0; padding:14px 16px; background:#f1ead9; border-left:3px solid var(--gold); font-size:1rem; line-height:1.7; }
+.client-page #bTotal strong { font-family:'Cormorant Garamond', Georgia, serif; font-size:1.5rem; color:var(--gold-dk); }
+
+.client-page .table-wrap { padding:6px; }
+.client-page table { font-size:.92rem; }
+.client-page th { background:var(--navy); color:var(--gold-hi); font-weight:500; letter-spacing:.03em; padding:14px 16px; border:0; }
+.client-page td { padding:14px 16px; border-bottom:1px solid var(--line); }
+.client-page tr:hover td { background:#f3ecdb; }
+.client-page .badge { padding:3px 14px; border-radius:2px; font-weight:500; font-size:.8rem; background:#ece3cd; color:var(--gold-dk); }
+.client-page .badge.st-Pending { background:#fdf0c8; color:#7a5a05; }
+.client-page .badge.st-Confirmed { background:#d9e7fb; color:#1d4a8a; }
+.client-page .badge.st-Completed { background:#d9f0e0; color:#1d6b3a; }
+.client-page .badge.st-Cancelled { background:#f8dcdc; color:#8d1f1f; }
+.client-page .msg { border-radius:2px; font-weight:500; border-left:4px solid; }
+.client-page .msg.ok { background:#e8f5ec; color:#17542f; border-color:#2f9e5a; }
+.client-page .msg.err { background:#fbe6e6; color:#8d1f1f; border-color:#c0392b; }
+
+@media (max-width:760px) {
+  .client-page header { padding:12px 16px; }
+  .client-page main { padding:28px 16px 60px; }
+  .client-page .card { padding:22px 20px; }
+}
+@media (prefers-reduced-motion:reduce) { .client-page .room-card, .client-page .room-card img { transition:none; } }

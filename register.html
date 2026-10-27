@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Register - Hotel Booking System</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="auth.css"></head>
+<body class="auth-page">
+<main class="stage"><section class="panel wide">
+  <svg class="crest" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff2b8"/><stop offset="1" stop-color="#b8862b"/></linearGradient></defs><path d="M32 6l8 14 16 4-12 12 4 18-16-9-16 9 4-18L8 24l16-4z" fill="none" stroke="url(#cg)" stroke-width="2.2" stroke-linejoin="round"/><circle cx="32" cy="29" r="5" fill="url(#cg)"/><path d="M14 56h36" stroke="url(#cg)" stroke-width="2.2" stroke-linecap="round"/></svg>
+  <h1>Create your account</h1>
+  <p class="sub">Join Hotel Booking System in a minute.</p>
+  <div class="grid2">
+    <div class="field" style="--i:1"><label for="regName">Full name</label><input id="regName" autocomplete="name"></div>
+    <div class="field" style="--i:2"><label for="regPhone">Phone</label><input id="regPhone" autocomplete="tel"></div>
+  </div>
+  <div class="field" style="--i:3"><label for="regEmail">Email</label><input id="regEmail" type="email" autocomplete="email" placeholder="you@example.com"></div>
+  <div class="field" style="--i:4"><label for="regPass">Password (min 6 characters)</label><div class="pw"><input id="regPass" type="password" autocomplete="new-password"><button type="button" class="eye" aria-label="Show password" aria-pressed="false"><svg class="i-show" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><svg class="i-hide" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10.6 10.6 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.1 3.9M6.6 6.6A16.6 16.6 0 0 0 2 12s3.6 7 10 7a10 10 0 0 0 4.2-.9M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg></button></div></div>
+  <div class="field" style="--i:5"><label>Register as</label>
+    <div class="seg" role="group" aria-label="User type" data-target="regType">
+        <button type="button" class="on" data-v="client">Client</button><button type="button" data-v="staff">Staff</button><button type="button" data-v="admin">Admin</button>
+      </div>
+    <input type="hidden" id="regType" value="client">
+  </div>
+  <div class="actions" style="--i:6">
+    <button type="button" class="gold" onclick="register()">Register</button>
+    <button type="button" class="line" onclick="leaveTo('index.html')">Back to login</button>
+  </div>
+  <p id="authMsg" class="msg" hidden></p>
+</section></main>
+<p id="msg" hidden></p><span id="welcome"></span><span id="nav"></span>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase_client.js"></script>
+<script src="common.js"></script>
+<script src="auth_ui.js"></script>
+<script src="register.js"></script>
+</body></html>

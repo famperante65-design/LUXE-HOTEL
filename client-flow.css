@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;0,600;1,500&family=Raleway:wght@400;500;600&display=swap');
+/* CLIENT THEME - Flowing Gold: same look as the login page (dark, gliding gold ribbons, glass cards). Loaded by client_theme.js. */
+body.client-page {
+  --head:'Bodoni Moda', Georgia, serif;
+  --body:'Raleway', system-ui, sans-serif;
+  --ink:#f6e8c0;
+  --muted:#bda878;
+  --line:rgba(212,168,67,.28);
+  --sand:rgba(255,248,225,.06);
+  --paper:linear-gradient(160deg, rgba(34,23,9,.72), rgba(14,9,4,.78));
+  --acc:#d4a843;
+  --acc-dk:#f6e3a1;
+  --link:#f6e3a1;
+  --ring:rgba(212,168,67,.22);
+  --page-h:#f6e3a1;
+  --page-sub:#bda878;
+  --card-h:#f6e3a1;
+  --page-bg:radial-gradient(120% 90% at 50% 0%, #2a1c08 0%, #120c05 55%, #0a0705 100%);
+  --html-bg:#0a0705;
+  --hdr-bg:rgba(14,9,4,.72);
+  --hdr-line:1px solid rgba(212,168,67,.45);
+  --hdr-brand:#f6e3a1;
+  --hdr-ink:#bda878;
+  --nav-ink:#e9d9a6;
+  --nav-act:#f6e3a1;
+  --brand-size:1.6rem;
+  --brand-weight:600;
+  --brand-track:.03em;
+  --h1-weight:600;
+  --h1-style:normal;
+  --btn-bg:linear-gradient(135deg,#f6e3a1,#d4a843 50%,#a8761a);
+  --btn-a:#d4a843;
+  --btn-b:#8a6212;
+  --btn-ink:#2a1c08;
+  --btn-r:3px;
+  --btn-shadow:0 10px 28px rgba(212,168,67,.3), inset 0 1px 0 rgba(255,255,255,.55);
+  --card-border:1px solid rgba(212,168,67,.55);
+  --card-r:6px;
+  --rc-r:6px;
+  --img-r:3px;
+  --in-r:3px;
+  --shadow:0 30px 80px rgba(0,0,0,.65), 0 0 60px rgba(212,168,67,.12), inset 0 1px 0 rgba(255,236,170,.22);
+  --th-bg:rgba(212,168,67,.2);
+  --th-ink:#f6e3a1;
+}
+
+body.client-page { font-family:var(--body); color:var(--ink); background:var(--page-bg); min-height:100vh; }
+html:has(body.client-page) { background:var(--html-bg); }
+.client-page header { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px 20px; padding:16px 36px; background:var(--hdr-bg); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:var(--hdr-line); position:sticky; top:0; z-index:5; }
+.client-page header strong { font-family:var(--head); font-size:var(--brand-size); font-weight:var(--brand-weight); color:var(--hdr-brand); letter-spacing:var(--brand-track); }
+.client-page #welcome { color:var(--hdr-ink); margin-left:16px; font-size:.93rem; }
+.client-page nav { display:flex; flex-wrap:wrap; gap:4px 8px; align-items:center; }
+.client-page nav a { background:none; color:var(--nav-ink); padding:8px 16px; margin:0; border-radius:0; border-bottom:2px solid transparent; font-weight:500; text-decoration:none; transition:color .2s, border-color .2s; }
+.client-page nav a:hover { color:var(--acc); }
+.client-page nav a.active { color:var(--nav-act); border-bottom-color:var(--acc); outline:0; }
+.client-page nav a.ghost { border:1px solid var(--acc); color:var(--acc-dk); border-radius:var(--btn-r); padding:6px 18px; margin-left:12px; background:none; }
+.client-page nav a.ghost:hover { background:var(--acc); color:#fff; }
+.client-page main { max-width:1180px; margin:0 auto; padding:46px 28px 90px; }
+.client-page main a { color:var(--link); font-weight:500; }
+.client-page h2 { font-family:var(--head); font-weight:600; font-size:2rem; margin:0 0 14px; color:var(--page-h); }
+.client-page .card h2 { color:var(--card-h); }
+.client-page .rooms-head { margin:4px 0 50px; text-align:center; }
+.client-page .rooms-head h1 { font-family:var(--head); font-weight:var(--h1-weight); font-style:var(--h1-style); font-size:clamp(2.5rem, 6vw, 4.2rem); line-height:1.05; color:var(--page-h); margin:0 0 12px; }
+.client-page .rooms-head h1::after { content:""; display:block; width:110px; height:1px; margin:18px auto 0; background:linear-gradient(90deg, transparent, var(--acc), transparent); }
+.client-page .rooms-head p { color:var(--page-sub); font-size:1.08rem; margin:0; }
+.client-page .rooms-grid { grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:38px 32px; }
+.client-page .room-card { background:var(--paper); border:var(--card-border); border-radius:var(--rc-r); box-shadow:var(--shadow); text-align:center; display:flex; flex-direction:column; overflow:hidden; transition:transform .3s, box-shadow .3s; }
+.client-page .room-card:hover { transform:translateY(-4px); }
+.client-page .room-card img, .client-page .room-info img, .client-page .room-img { object-fit:cover; height:230px; width:100%; transition:transform .6s; }
+.client-page .room-card:hover img { transform:scale(1.04); }
+.client-page .room-img.ph { background:linear-gradient(135deg, var(--btn-a), var(--btn-b)); color:#fff; }
+.client-page .room-body { padding:22px 26px 28px; display:flex; flex-direction:column; align-items:center; flex:1; }
+.client-page .room-body h3 { font-family:var(--head); font-size:1.5rem; font-weight:600; color:var(--card-h); margin:0 0 10px; }
+.client-page .room-desc { color:var(--muted); font-size:.93rem; line-height:1.65; margin:0 0 14px; }
+.client-page .room-meta { margin:auto 0 18px; padding-top:14px; width:100%; border-top:1px solid var(--line); color:var(--acc-dk); font-size:.92rem; font-weight:600; }
+.client-page .room-btn, .client-page button { background:var(--btn-bg); color:var(--btn-ink); border-radius:var(--btn-r); font-family:inherit; font-weight:600; letter-spacing:.02em; box-shadow:var(--btn-shadow); transition:filter .2s, transform .2s; }
+.client-page .room-btn { padding:11px 30px; margin:0; }
+.client-page button { padding:13px 32px; margin:20px 0 0; }
+.client-page .room-btn:hover, .client-page button:hover { filter:brightness(1.12); transform:translateY(-1px); }
+.client-page .card { background:var(--paper); border:var(--card-border); border-radius:var(--card-r); box-shadow:var(--shadow); padding:30px 32px; color:var(--ink); }
+.client-page .room-detail { gap:32px; }
+.client-page .room-info img, .client-page .room-info .room-img { border-radius:var(--img-r); height:280px; margin-bottom:20px; }
+.client-page .room-info p { color:var(--muted); line-height:1.7; }
+.client-page .room-info b { color:var(--ink); font-weight:600; }
+.client-page label { color:var(--muted); font-size:.84rem; font-weight:500; margin:16px 0 6px; }
+.client-page input, .client-page select, .client-page textarea { background:#fff; border:1px solid var(--line); border-radius:var(--in-r); padding:12px 14px; font-family:inherit; color:var(--ink); }
+.client-page input:disabled { background:var(--sand); color:var(--muted); }
+.client-page input:focus, .client-page select:focus, .client-page textarea:focus { outline:0; border-color:var(--acc); box-shadow:0 0 0 4px var(--ring); }
+.client-page button:focus-visible, .client-page nav a:focus-visible, .client-page main a:focus-visible { outline:3px solid var(--acc); outline-offset:2px; }
+#bTotal { margin:18px 0 0; padding:14px 18px; background:var(--sand); border-left:4px solid var(--acc); line-height:1.7; }
+.client-page #bTotal strong { font-family:var(--head); font-size:1.5rem; color:var(--card-h); }
+.client-page .table-wrap { padding:8px; }
+.client-page table { font-size:.92rem; }
+.client-page th { background:var(--th-bg); color:var(--th-ink); font-weight:500; padding:14px 16px; border:0; }
+.client-page td { padding:14px 16px; border-bottom:1px solid var(--line); color:var(--ink); }
+.client-page tr:hover td { background:var(--sand); }
+.client-page .badge { padding:3px 14px; border-radius:999px; font-weight:600; font-size:.8rem; background:var(--sand); color:var(--acc-dk); }
+.client-page .badge.st-Pending { background:#fdf0c8; color:#7a5a05; }
+.client-page .badge.st-Confirmed { background:#d9e8fb; color:#1d4a8a; }
+.client-page .badge.st-Completed { background:#d6efdf; color:#1b6a3a; }
+.client-page .badge.st-Cancelled { background:#f8dcdc; color:#8d1f1f; }
+.client-page .msg { border-radius:12px; font-weight:500; border-left:4px solid; }
+.client-page .msg.ok { background:#e6f4ea; color:#17542f; border-color:#2f9e5a; }
+.client-page .msg.err { background:#fbe6e6; color:#8d1f1f; border-color:#c0392b; }
+@media (max-width:760px) { .client-page header { padding:12px 14px; } .client-page main { padding:30px 16px 60px; } .client-page .card { padding:22px 20px; } }
+@media (prefers-reduced-motion:reduce) { .client-page .room-card, .client-page .room-card img { transition:none; } }
+
+/* ===== Same flowing-gold look as the login page ===== */
+.flow { position:fixed; inset:0; overflow:hidden; z-index:0; pointer-events:none; }
+.glow { position:absolute; border-radius:50%; filter:blur(60px); opacity:.6; animation:breathe 14s ease-in-out infinite; }
+.glow.g1 { width:55vmax; height:55vmax; left:-15vmax; top:-20vmax; background:radial-gradient(circle, rgba(212,168,67,.55), transparent 65%); }
+.glow.g2 { width:50vmax; height:50vmax; right:-18vmax; bottom:-22vmax; background:radial-gradient(circle, rgba(246,227,161,.4), transparent 65%); animation-delay:-7s; }
+.wave { position:absolute; left:0; width:200%; height:70vh; animation:drift var(--dur) linear infinite; will-change:transform; }
+.wave[style*="--dir:-1"] { animation-name:driftBack; }
+.dust { position:absolute; bottom:-12px; border-radius:50%; background:radial-gradient(circle, #fff2b8, #d4a843 60%, transparent 70%); opacity:0; animation:rise var(--d) linear var(--delay) infinite; }
+.vignette { position:absolute; inset:0; background:radial-gradient(ellipse at center, transparent 35%, rgba(5,3,1,.72) 100%); }
+@keyframes drift { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@keyframes driftBack { from { transform:translateX(-50%); } to { transform:translateX(0); } }
+@keyframes breathe { 0%,100% { transform:scale(1); opacity:.5; } 50% { transform:scale(1.15); opacity:.7; } }
+@keyframes rise { 0% { transform:translateY(0) translateX(0); opacity:0; } 10% { opacity:var(--o); } 90% { opacity:var(--o); } 100% { transform:translateY(-105vh) translateX(40px); opacity:0; } }
+@keyframes cardIn { from { opacity:0; transform:translateY(40px) scale(.97); filter:blur(8px); } to { opacity:1; transform:none; filter:none; } }
+@keyframes shine { to { background-position:-220% 0; } }
+
+.client-page header { position:sticky; top:0; z-index:5; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
+.client-page main { position:relative; z-index:1; }
+.client-page header strong, .client-page .rooms-head h1 { background:linear-gradient(100deg, #b8862b 10%, #fff2b8 38%, #d4a843 55%, #fff2b8 72%, #b8862b 95%); background-size:220% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; animation:shine 7s linear infinite; }
+.client-page nav a.ghost { color:#f6e3a1; border-color:rgba(212,168,67,.7); }
+.client-page nav a.ghost:hover { background:rgba(212,168,67,.18); color:#fff2b8; }
+.client-page .rooms-head h1::after { background:linear-gradient(90deg, transparent, #d4a843, transparent); }
+.client-page .room-card, .client-page .card { backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); outline:1px solid rgba(212,168,67,.28); outline-offset:-8px; animation:cardIn .9s cubic-bezier(.2,.8,.2,1) both; }
+.client-page .room-card:hover { box-shadow:0 34px 80px rgba(0,0,0,.7), 0 0 50px rgba(212,168,67,.25); }
+.client-page .room-card > img, .client-page .room-card > .room-img { border-bottom:2px solid rgba(212,168,67,.6); }
+.client-page .room-info img, .client-page .room-info .room-img { border:1px solid rgba(212,168,67,.4); }
+.client-page .room-info b { color:#fff2b8; }
+.client-page .room-body h3 { letter-spacing:.02em; }
+.client-page .room-btn, .client-page button { position:relative; overflow:hidden; isolation:isolate; border:1px solid #8a6212; }
+.client-page .room-btn::after, .client-page button::after { content:""; z-index:-1; position:absolute; top:0; left:-60%; width:40%; height:100%; background:linear-gradient(100deg, transparent, rgba(255,255,255,.65), transparent); transform:skewX(-20deg); animation:sweep 4.5s ease-in-out infinite; }
+@keyframes sweep { 0%,55% { left:-60%; } 100% { left:130%; } }
+.client-page input, .client-page select, .client-page textarea { background:rgba(255,248,225,.06); color:#f6e8c0; border:1px solid rgba(212,168,67,.35); }
+.client-page input::placeholder, .client-page textarea::placeholder { color:rgba(189,168,120,.55); }
+.client-page input:focus, .client-page select:focus, .client-page textarea:focus { background:rgba(255,248,225,.1); border-color:#f6e3a1; box-shadow:0 0 0 4px rgba(212,168,67,.2), 0 0 24px rgba(212,168,67,.18); }
+.client-page input:disabled { background:rgba(255,248,225,.03); color:var(--muted); }
+.client-page select option { background:#1a1208; color:#f6e8c0; }
+.client-page input[type=date] { color-scheme:dark; }
+.client-page label { color:#f6e3a1; letter-spacing:.03em; }
+#bTotal { background:rgba(212,168,67,.1); border-radius:0 3px 3px 0; }
+.client-page .table-wrap { padding:8px; }
+.client-page th { font-weight:600; border-bottom:1px solid rgba(212,168,67,.5); }
+.client-page tr:hover td { background:rgba(212,168,67,.08); }
+.client-page .badge { background:rgba(212,168,67,.16); color:#f6e3a1; border:1px solid rgba(212,168,67,.35); }
+.client-page .badge.st-Pending { background:rgba(251,191,36,.16); color:#fcd34d; border-color:rgba(251,191,36,.4); }
+.client-page .badge.st-Confirmed { background:rgba(96,165,250,.16); color:#93c5fd; border-color:rgba(96,165,250,.4); }
+.client-page .badge.st-Completed { background:rgba(74,222,128,.14); color:#86efac; border-color:rgba(74,222,128,.4); }
+.client-page .badge.st-Cancelled { background:rgba(248,113,113,.14); color:#fca5a5; border-color:rgba(248,113,113,.4); }
+.client-page .msg { border-radius:3px; }
+.client-page .msg.ok { background:rgba(47,158,90,.16); color:#bff0d1; border-color:#3dbd78; }
+.client-page .msg.err { background:rgba(190,40,60,.16); color:#ffc4cc; border-color:#e0556b; }
+.client-page .rooms-grid > .room-card:nth-child(1) { animation-delay:0.12s; }
+.client-page .rooms-grid > .room-card:nth-child(2) { animation-delay:0.24s; }
+.client-page .rooms-grid > .room-card:nth-child(3) { animation-delay:0.36s; }
+.client-page .rooms-grid > .room-card:nth-child(4) { animation-delay:0.48s; }
+.client-page .rooms-grid > .room-card:nth-child(5) { animation-delay:0.60s; }
+.client-page .rooms-grid > .room-card:nth-child(6) { animation-delay:0.72s; }
+.client-page .rooms-grid > .room-card:nth-child(7) { animation-delay:0.84s; }
+.client-page .rooms-grid > .room-card:nth-child(8) { animation-delay:0.96s; }
+.client-page .rooms-grid > .room-card:nth-child(9) { animation-delay:1.08s; }
+@media (prefers-reduced-motion:reduce) { .wave, .dust, .glow, .client-page header strong, .client-page .rooms-head h1, .client-page button::after, .client-page .room-btn::after { animation:none !important; } .client-page .room-card, .client-page .card { animation-duration:.01s !important; animation-delay:0s !important; } }
